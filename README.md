@@ -63,6 +63,7 @@ int main(void)
 
 A *C* program that prints exactly *with proper grammar, but the outcome is a piece of art,*, followed by a new line. Use the function *printf*; You are not allowed to use the function *puts*; Your program should return *0*; Your program should compile without warning when using the *-Wall gcc* option using:
 
+{
 #include <stdio.h>
 
 int main(void)
@@ -70,11 +71,13 @@ int main(void)
         printf("with proper grammar, but the outcome is a piece of art,\n");
         return (0);
 }
+}
 
 ## 6-size.c: Size is not grandeur, and territory does not make a nation
 
 A *C* program that prints the size of various types on the computer it is compiled and run on. You should produce the exact same output as in the example; Warnings are allowed; Your program should return *0*; You might have to install the package *libc6-dev-i386* on your Linux (Vagrant) to test the *-m32 gcc* option using:
 
+{
 #include <stdio.h>
 
 int main(void)
@@ -92,6 +95,7 @@ int main(void)
 	printf("Size of a float: %lu byte(s)\n", (unsigned long)sizeof(f));
 	return (0);
 }
+}
 
 ## 100-intel: Intel 
 
@@ -103,7 +107,7 @@ A script that generates the assembly code (Intel syntax) of a *C* code and save 
 
 A *C* program that prints exactly *and that piece of art is useful" - Dora Korpar, 2015-10-19*, followed by a new line, to the standard error. You are not allowed to use any functions listed in the *NAME* section of the *man (3) printf or man (3) puts*; Your program should return *1*; Your program should compile without any warnings when using the *-Wall gcc* option using:
 
-
+{
 #include <stdio.h>
 
 int main(void)
@@ -112,6 +116,4 @@ int main(void)
 
 	return (1);
 }
-
-
-# holbertonschool-low_level_programming
+}
