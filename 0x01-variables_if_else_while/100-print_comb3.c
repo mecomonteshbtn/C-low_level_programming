@@ -10,19 +10,21 @@
 
 int main(void)
 {
-	int i, j;
+	int d, p;
 
-	for (i = '0'; i <= '9'; i++)
+	for (d = '0'; d <= '9'; d++)
 	{
-		for (j = i+1; j <= '9'; j++)
+		for (p = d + 1; p < '9'; p++)
 		{
-			putchar(i);
-			putchar(j);
-			putchar(',');
-			putchar(' ');
+			if (p != d)
+			{
+				putchar(d);
+				putchar(p);
+				putchar(',');
+				putchar(' ');
+			}
 		}
 	}
-
 	putchar('\n');
 	return (0);
 }
