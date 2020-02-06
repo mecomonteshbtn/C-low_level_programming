@@ -18,10 +18,17 @@ int main(void)
 		{
 			if (p != d)
 			{
-				putchar(d);
-				putchar(p);
-				putchar(',');
-				putchar(' ');
+				if (d == '8' && p == '9')
+				{
+					putchar(d);
+					putchar(p);
+				} else
+				{
+					putchar(d);
+					putchar(p);
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
