@@ -12,23 +12,16 @@ int main(void)
 {
 	int d, p;
 
-	for (d = '0'; d <= '9'; d++)
+	for (d = '0'; d < '9'; d++)
 	{
 		for (p = d + 1; p <= '9'; p++)
 		{
 			if (p != d)
 			{
-				if (d == '8' && p == '9')
-				{
-					putchar(d);
-					putchar(p);
-				} else
-				{
-					putchar(d);
-					putchar(p);
-					putchar(',');
-					putchar(' ');
-				}
+				putchar(d);
+				putchar(p);
+				putchar(',');
+				putchar(' ');
 			}
 		}
 	}
