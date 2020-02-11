@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * times_table - Check description
+ * Description: It prints 9 times table starting with 0
+ * Return: Nothing.
  */
 void times_table(void)
 {
