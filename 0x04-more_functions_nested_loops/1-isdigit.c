@@ -7,9 +7,10 @@
  */
 int _isdigit(int c)
 {
-	int i = 48, isdigit = 0;
+	char i = '0';
+	int isdigit = 0;
 
-	for (; i <= 58; i++)
+	for (; i <= '9'; i++)
 	{
 		if (i == c)
 		{
