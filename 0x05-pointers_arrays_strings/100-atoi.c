@@ -9,7 +9,7 @@ int _atoi(char *s)
 {
 	int sign = 1;
 	unsigned int total = 0;
-	char flag = 0;
+	char null_flag = 0;
 
 	while (*s)
 	{
@@ -17,16 +17,18 @@ int _atoi(char *s)
 			sign *= -1;
 
 		if (*s >= '0' && *s <= '9')
-			flag = 1;
+		{
+			null_flag = 1;
 			total = total * 10 + *s - '0';
+		}
 
-		else if (flag)
+		else if (null_flag)
 			break;
 		s++;
 	}
 
 	if (sign < 0)
-		total = (-(total));
+		total = (-total);
 
 	return (total);
 }
