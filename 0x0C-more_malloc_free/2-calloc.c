@@ -19,7 +19,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (space == NULL)
 		return (NULL);
 
-	for (; i < size; i++)
+	for (; i <= size; i++)
 		*(space + (size * i)) = 0;
 
 	return (space);
