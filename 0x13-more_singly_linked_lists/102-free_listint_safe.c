@@ -9,73 +9,36 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t count;
-	listptr_t *ptr, *head2;
-	listint_t *temp, *to;
+	size_t counter = 0;
+	listint_t *temp;
 
-	count = 0;
-	head2 = NULL;
 	temp = *h;
-	while (temp != NULL)
+	while (temp)
 	{
-		ptr = head2;
-		while (ptr != NULL)
-		{
-			if (ptr->ptr == temp)
-			{
-				free_listrange(h, to);
-				free(to);
-				free_listptr(head2);
-				return (count);
-			}
-			ptr = ptr->next;
-		}
-		add_nodeptr(&head2, temp);
-		to = temp;
+		temp = *h;
 		temp = temp->next;
-		count++;
+		free_list(temp);
+		counter++;
 	}
-	free_listrange(h, to);
-	free(to);
-	free_listptr(head2);
-	return (count);
+	free(h);
+	return (counter);
 }
 
 /**
- * free_listrange - frees a list given a range
- * @h: head to start freeing
- * @to: when to stop freeing
+ * free_list - A function that frees a listint_t recursively
+ * @head: A pointer to the listint_t structure
+ * Return: Nothing
  */
-void free_listrange(listint_t **h, listint_t *to)
+void free_list(listint_t *head)
 {
 	listint_t *temp;
-	listint_t *temp2;
 
-	temp2 = *h;
-	while (temp2 != to)
+	if (head)
 	{
-		temp = temp2;
-		temp2 = temp2->next;
+		temp = head;
+		temp = temp->next;
 		free(temp);
+		free_list(temp);
 	}
-	*h = NULL;
-}
-
-/**
- * free_listint2 - frees a listint_t
- * @head: pointer to the head
- */
-void free_listint2(listint_t **head)
-{
-	listint_t *temp;
-	listint_t *temp2;
-
-	temp2 = *head;
-	while (temp2 != NULL && head != NULL)
-	{
-		temp = temp2;
-		temp2 = temp2->next;
-		free(temp);
-	}
-	*head = NULL;
+	head = NULL;
 }
