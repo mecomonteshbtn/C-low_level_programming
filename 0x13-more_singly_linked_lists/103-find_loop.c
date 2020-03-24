@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
 
 /**
  * find_listint_loop - A function that finds the loop in a list
@@ -13,15 +12,10 @@ listint_t *find_listint_loop(listint_t *head)
 	while (one && two && two->next)
 	{
 		one = one->next;
-		two = one->next;
-		while (two->next)
+		two = two->next->next;
+		if (one == two)
 		{
-			two = two->next;
-			if (one == two)
-			{
-				printf("find a loop");
-				return (one);
-			}
+			return (one);
 		}
 	}
 	return (NULL);
