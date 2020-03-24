@@ -20,7 +20,8 @@ size_t free_listint_safe(listint_t **h)
 		free_list(temp);
 		counter++;
 	}
-	free(h);
+	*h = NULL;
+
 	return (counter);
 }
 
@@ -40,5 +41,5 @@ void free_list(listint_t *head)
 		free(temp);
 		free_list(temp);
 	}
-	head = NULL;
+	free(head);
 }
