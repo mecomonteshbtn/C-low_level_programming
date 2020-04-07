@@ -1,21 +1,39 @@
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int main (void)
+/**
+  * main - An entry main function
+  * Return: Nothing
+  */
+int main(void)
 {
-	char str[80] = "This is - www.tutorialspoint.com - website";
+	char *buffer, *token;
+	size_t bufsize = 32, characters;
 	const char s[2] = "-";
-	char *token;
+
+	/* get the string from keyboard */
+	buffer = (char *)malloc(bufsize * sizeof(char));
+	if (buffer == NULL)
+	{
+		perror("Unable to allocate buffer");
+		free(buffer);
+		exit(1);
+	}
+	characters = getline(&buffer, &bufsize, stdin);
+	printf("   %zu   \n", characters);
 
 	/* get the first token */
-	token = strtok(str, s);
+	token = strtok(buffer, s);
 
 	/* walk through other tokens */
-	while( token != NULL ) {
-		printf( " %s\n", token );
-
+	while (token != NULL)
+	{
+		printf(" %s\n", token);
 		token = strtok(NULL, s);
 	}
+	free(buffer);
+	free(token);
 
-	return(0);
+	return (0);
 }
