@@ -9,15 +9,6 @@
  */
 int main(int argc, char *argv[])
 {
-/**
- * if (argc == 1)
- *	printf("%s\n", argv[0]);
- *	else if (argc > 1)
- *	{
- *		argv[0] = argv[4];
- *		printf("%s\n", argv[0]);
- *	}
- */
 	if (argc > 0)
 		printf("%s\n", argv[0]);
 
