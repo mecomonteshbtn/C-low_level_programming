@@ -1,5 +1,6 @@
 #include "hash_tables.h"
 #include <stdio.h>
+#include <string.h>
 
 int not_last_node(const hash_table_t *ht, hash_node_t *node);
 
@@ -9,29 +10,29 @@ int not_last_node(const hash_table_t *ht, hash_node_t *node);
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long int i = 0, index = 0;
+	unsigned long int i = 0, last_pos = 0;
 	hash_node_t *node = NULL;
 
 	putchar('{');
 	if (ht)
 	{
-		for (i = 0; i < ht->size; i++)
+		for (; i < ht->size - 1; i++)
+		{
+			if (ht->array[i] != NULL)
+				last_pos = i;
+		}
+
+		for (i = 0; i <= last_pos; i++)
 		{
 			node = ht->array[i];
 			while (node)
 			{
-				printf("'%s': '%s'", node->key, node->value);
-				index = key_index((unsigned char *)node->key, ht->size);
-				for (index = index + 1; index < ht->size; index++)
-				{
-					if (ht->array[index] != NULL)
-					{
-						break;
-						printf(", ");
-					}
-				}
+				printf("%s: %s", node->key, node->value);
 				node = node->next;
+				if (i < last_pos - 1)
+					printf(", ");
 			}
+
 		}
 	}
 	printf("}\n");
