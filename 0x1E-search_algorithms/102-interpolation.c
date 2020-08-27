@@ -1,5 +1,4 @@
 #include "search_algos.h"
-#include <math.h>
 
 /**
  * interpolation_search - interpolation search algorithm for arrays.
