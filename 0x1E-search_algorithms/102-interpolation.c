@@ -17,7 +17,7 @@ int interpolation_search(int *array, size_t size, int value)
 	while (array[a] != array[b])
 	{
 		m = a + (value - array[a]) * (b - a) / (array[b] - array[a]);
-		if (m < a || m > b)
+		if (m > size)
 		{
 			printf("Value checked array[%d] is out of range\n", m);
 			return (-1);
