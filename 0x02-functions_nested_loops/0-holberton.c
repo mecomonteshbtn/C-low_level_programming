@@ -1,5 +1,5 @@
 #include <unistd.h>
-#include "putchar.h"
+#include <putchar.h>
 
 /**
  * main - Check description
@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	char word[7] = "Putchar";
+	char word[7] = 'Putchar';
 	int i;
 
 	for (i = 0; i < 7; i++)
